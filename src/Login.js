@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from 'react-bootstrap';
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaRegEye } from "react-icons/fa6";
+
+
 
 function Login({ setIsuserlogin }) {
 
@@ -19,6 +23,7 @@ function Login({ setIsuserlogin }) {
     const [error, setError] = useState({})
     const navigate = useNavigate()
     const [alert, setAlert] = useState(null);
+    const [show, setShow] = useState(false);
 
     const handlechange = (e) => {
         const { name, value } = e.target;
@@ -27,6 +32,9 @@ function Login({ setIsuserlogin }) {
         })
     }
 
+    const handleClick = () => {
+        setShow(!show)
+    }
     const handlesubmit = (e) => {
         e.preventDefault();
 
@@ -103,10 +111,19 @@ function Login({ setIsuserlogin }) {
                         </div>
                         <br />
                         <div className="input-group mb-3">
-                            <input type="password" className="form-control" placeholder="Password" name="password" value={values.password} onChange={handlechange} />
+                            <input type={show ? 'text' : 'password'} className="form-control" placeholder="Password" name="password" value={values.password} onChange={handlechange} />
                             <div className="input-group-append">
                                 <div className="input-group-text">
-                                    <span className="fas fa-lock"></span>
+                                    <span
+                                        style={{
+                                            cursor: 'pointer',
+                                            border: 'none',
+                                            background: 'transparent',
+                                            padding: 0
+                                        }}
+                                        onClick={handleClick}>
+                                        {show ? <FaRegEyeSlash /> : <FaRegEye />}
+                                    </span>
                                 </div>
                             </div>
                             <div className="input-group">

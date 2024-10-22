@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaRegEye } from "react-icons/fa6";
 
 function Recoverpassword() {
 
@@ -14,6 +16,11 @@ function Recoverpassword() {
     })
     const [error, setError] = useState({})
     const [redirectlogin, setRedirectlogin] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClick = () => {
+        setShow(!show)
+    }
 
     const handlechange = (e) => {
         const { name, value } = e.target;
@@ -61,10 +68,19 @@ function Recoverpassword() {
 
                         <form onSubmit={handlesubmit}>
                             <div className="input-group mb-3">
-                                <input type="password" className="form-control" placeholder="Password" autoComplete="new-password" value={values.password} name="password" onChange={handlechange} />
+                                <input type={show ? 'text' : 'password'} className="form-control" placeholder="Password" autoComplete="new-password" value={values.password} name="password" onChange={handlechange} />
                                 <div className="input-group-append">
                                     <div className="input-group-text">
-                                        <span className="fas fa-lock"></span>
+                                        <span
+                                            style={{
+                                                cursor: 'pointer',
+                                                border: 'none',
+                                                background: 'transparent',
+                                                padding: 0
+                                            }}
+                                            onClick={handleClick}>
+                                            {show ? <FaRegEyeSlash /> : <FaRegEye />}
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="input-group">
@@ -73,10 +89,19 @@ function Recoverpassword() {
                             </div>
                             <br />
                             <div className="input-group mb-3">
-                                <input type="password" className="form-control" placeholder="Confirm Password" autoComplete="new-password" value={values.confirmpassword} name="confirmpassword" onChange={handlechange} />
+                                <input type={show ? 'text' : 'password'} className="form-control" placeholder="Confirm Password" autoComplete="new-password" value={values.confirmpassword} name="confirmpassword" onChange={handlechange} />
                                 <div className="input-group-append">
                                     <div className="input-group-text">
-                                        <span className="fas fa-lock"></span>
+                                        <span
+                                            style={{
+                                                cursor: 'pointer',
+                                                border: 'none',
+                                                background: 'transparent',
+                                                padding: 0
+                                            }}
+                                            onClick={handleClick}>
+                                            {show ? <FaRegEyeSlash /> : <FaRegEye />}
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="input-group">
