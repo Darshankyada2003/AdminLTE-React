@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Login";
-import Registration from "./Registration";
-import Forgotpassword from "./Forgot-password";
-import Recoverpassword from "./Recover-password";
-import Admin from "./Admin";
-import Dashboard from "./Dashboard";
-import Protected from "./Protected";
-import Public from "./Public";
+import Login from "./component/Login";
+import Registration from "./component/Registration";
+import Forgotpassword from "./component/Forgot-password";
+import Recoverpassword from "./component/Recover-password";
+import Admin from "./component/Admin";
+import Dashboard from "./component/Dashboard";
+import Protected from "./component/Protected";
+import Public from "./component/Public";
 
 function App() {
 
