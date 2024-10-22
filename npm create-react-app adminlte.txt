@@ -1,0 +1,13 @@
+npm create-react-app adminlte
+
+router : npm install react-router-dom
+
+font : npm install --save @fortawesome/fontawesome-free\
+
+.env : npm i dotenv
+
+axios : npm i axios
+
+Alert : npm i react-bootstrap
+
+Dropdown : npm i react-dropdown , npm i react-dropdown
